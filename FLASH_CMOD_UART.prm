@@ -1,0 +1,11 @@
+===================================
+Configuration Memory information
+===================================
+File Format        MCS
+Interface          SPIX1
+Size               4M
+Start Address      0x00000000
+End Address        0x003FFFFF
+
+Addr1         Addr2         Date                    File(s)
+0x00000000    0x0021728B    Mar 22 19:04:46 2024    D:/prj_FPGA/p3_cmoda7_uart2pc_demo/p3_cmoda7_uart2pc_demo.runs/impl_1/top_module.bit

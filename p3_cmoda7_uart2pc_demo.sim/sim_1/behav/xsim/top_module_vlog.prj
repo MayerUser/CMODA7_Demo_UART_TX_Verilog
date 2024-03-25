@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../p3_cmoda7_uart2pc_demo.srcs/sources_1/new/clk_div.v" \
+"../../../../p3_cmoda7_uart2pc_demo.srcs/sources_1/new/uart_tx.v" \
+"../../../../p3_cmoda7_uart2pc_demo.srcs/sources_1/new/top_module.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
