@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date         : Fri Mar 22 19:03:00 2024
+| Date         : Thu Mar 28 16:53:00 2024
 | Host         : Mayer-Laptop running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file top_module_control_sets_placed.rpt
 | Design       : top_module
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    29 |
-|    Minimum number of control sets                        |    29 |
+| Total control sets                                       |     6 |
+|    Minimum number of control sets                        |     6 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |   189 |
+| Unused register locations in slices containing registers |    25 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    29 |
-| >= 0 to < 4        |    26 |
+| Total control sets |     6 |
+| >= 0 to < 4        |     2 |
 | >= 4 to < 6        |     0 |
 | >= 6 to < 8        |     1 |
 | >= 8 to < 10       |     1 |
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
-| >= 16              |     1 |
+| >= 16              |     2 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -59,10 +59,10 @@ Table of Contents
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | No           | No                    | No                     |               0 |            0 |
-| No           | No                    | Yes                    |              57 |           33 |
-| No           | Yes                   | No                     |               8 |            8 |
+| No           | No                    | Yes                    |              61 |           23 |
+| No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |               2 |            1 |
+| Yes          | No                    | Yes                    |              18 |            5 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -70,38 +70,15 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+-----------------------------+-----------------------+----------------------------+------------------+----------------+--------------+
-|         Clock Signal        |     Enable Signal     |      Set/Reset Signal      | Slice Load Count | Bel Load Count | Bels / Slice |
-+-----------------------------+-----------------------+----------------------------+------------------+----------------+--------------+
-|  uart_tx_u0/ap_vaild_reg_9  |                       | uart_tx_u0/ap_vaild_reg_7  |                1 |              1 |         1.00 |
-|  uart_tx_u0/ap_vaild_reg_14 |                       | uart_tx_u0/ap_vaild_reg_2  |                1 |              1 |         1.00 |
-|  uart_tx_u0/ap_vaild_reg_16 |                       | uart_tx_u0/ap_vaild_reg_0  |                1 |              1 |         1.00 |
-|  uart_tx_u0/ap_vaild_reg_10 |                       | uart_tx_u0/ap_vaild_reg_6  |                1 |              1 |         1.00 |
-|  uart_tx_u0/ap_vaild_reg_12 |                       | uart_tx_u0/ap_vaild_reg_4  |                1 |              1 |         1.00 |
-|  uart_tx_u0/ap_vaild_reg_15 |                       | uart_tx_u0/ap_vaild_reg_1  |                1 |              1 |         1.00 |
-|  uart_tx_u0/ap_vaild_reg_13 |                       | uart_tx_u0/ap_vaild_reg_3  |                1 |              1 |         1.00 |
-|  uart_tx_u0/ap_vaild_reg_11 |                       | uart_tx_u0/ap_vaild_reg_5  |                1 |              1 |         1.00 |
-|  clock_div_u1/clkout_r      |                       | uart_tx_u0/ap_vaild_reg_9  |                1 |              1 |         1.00 |
-|  clock_div_u1/clkout_r      |                       | uart_tx_u0/ap_vaild_reg_14 |                1 |              1 |         1.00 |
-|  clock_div_u1/clkout_r      |                       | uart_tx_u0/ap_vaild_reg_0  |                1 |              1 |         1.00 |
-|  clock_div_u1/clkout_r      |                       | uart_tx_u0/ap_vaild_reg_2  |                1 |              1 |         1.00 |
-|  clock_div_u1/clkout_r      |                       | uart_tx_u0/ap_vaild_reg_1  |                1 |              1 |         1.00 |
-|  clock_div_u1/clkout_r      |                       | uart_tx_u0/ap_vaild_reg_16 |                1 |              1 |         1.00 |
-|  clock_div_u1/clkout_r      |                       | uart_tx_u0/ap_vaild_reg_10 |                1 |              1 |         1.00 |
-|  clock_div_u1/clkout_r      |                       | uart_tx_u0/ap_vaild_reg_4  |                1 |              1 |         1.00 |
-|  clock_div_u1/clkout_r      |                       | uart_tx_u0/ap_vaild_reg_6  |                1 |              1 |         1.00 |
-|  clock_div_u1/clkout_r      |                       | uart_tx_u0/ap_vaild_reg_7  |                1 |              1 |         1.00 |
-|  clock_div_u1/clkout_r      |                       | uart_tx_u0/ap_vaild_reg_8  |                1 |              1 |         1.00 |
-|  clock_div_u1/clkout_r      |                       | uart_tx_u0/ap_vaild_reg_12 |                1 |              1 |         1.00 |
-|  clock_div_u1/clkout_r      |                       | uart_tx_u0/ap_vaild_reg_15 |                1 |              1 |         1.00 |
-|  clock_div_u1/clkout_r      |                       | uart_tx_u0/ap_vaild_reg_13 |                1 |              1 |         1.00 |
-|  clock_div_u1/clkout_r      |                       | uart_tx_u0/ap_vaild_reg_3  |                1 |              1 |         1.00 |
-|  clock_div_u1/clkout_r      |                       | uart_tx_u0/ap_vaild_reg_5  |                1 |              1 |         1.00 |
-|  clock_div_u1/clkout_r      |                       | uart_tx_u0/ap_vaild_reg_11 |                1 |              1 |         1.00 |
-|  clock_div_u0/clk_uart      | uart_tx_u0/tx_i_1_n_0 | btn_IBUF[0]                |                1 |              2 |         2.00 |
-|  clock_div_u0/clk_uart      |                       | btn_IBUF[0]                |                3 |              7 |         2.33 |
-|  uart_tx_u0/uart_tx_vaild   |                       | btn_IBUF[0]                |                3 |              8 |         2.67 |
-|  sysclk_IBUF_BUFG           |                       | btn_IBUF[0]                |               10 |             25 |         2.50 |
-+-----------------------------+-----------------------+----------------------------+------------------+----------------+--------------+
++------------------------+-----------------------+------------------+------------------+----------------+--------------+
+|      Clock Signal      |     Enable Signal     | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
++------------------------+-----------------------+------------------+------------------+----------------+--------------+
+|  clock_div_u1/clkout_r |                       | btn_IBUF[0]      |                1 |              1 |         1.00 |
+|  clock_div_u0/clk_uart | uart_tx_u0/tx_i_1_n_0 | btn_IBUF[0]      |                1 |              2 |         2.00 |
+|  clock_div_u0/clk_uart |                       | btn_IBUF[0]      |                4 |              7 |         1.75 |
+|  clock_div_u3/clk      |                       | btn_IBUF[0]      |                2 |              9 |         4.50 |
+|  clock_div_u3/clk      | odd                   | btn_IBUF[0]      |                4 |             16 |         4.00 |
+|  sysclk_IBUF_BUFG      |                       | btn_IBUF[0]      |               16 |             44 |         2.75 |
++------------------------+-----------------------+------------------+------------------+----------------+--------------+
 
 
